@@ -1,9 +1,11 @@
+
 import java.util.Random;
 
 class PartitionApp {
+
     private long[] theArray;
     private int nElems;
-    
+
     // Counters for the lab requirement
     public static long compCount = 0;
     public static long swapCount = 0;
@@ -101,14 +103,14 @@ class PartitionApp {
         // (We don't count this swap as part of the algorithm's work logic usually, 
         // but if your prof is strict, this might increment swapCount)
         long pivotValue = theArray[pivotIndex];
-        swap(pivotIndex, right); 
+        swap(pivotIndex, right);
         return pivotValue;
     }
 
     public static void main(String[] args) {
         int maxSize = 100; // Array size
         int runs = 100;    // Lab requirement: 100 runs
-        
+
         long totalComps = 0;
         long totalSwaps = 0;
 
@@ -127,14 +129,14 @@ class PartitionApp {
 
             // --- CHANGE STRATEGY HERE: "BEGINNING", "MIDDLE", "RANDOM", "END" ---
             long pivot = arr.selectPivot(left, right, "RANDOM");
-            
+
             // Perform partition
             int partIndex = arr.partitionIt(left, right, pivot);
 
             // Accumulate totals
             totalComps += compCount;
             totalSwaps += swapCount;
-            
+
             // Optional: Print individual run stats (comment out if too noisy)
             // System.out.println("Run " + i + ": Pivot at " + partIndex + ", Comps: " + compCount + ", Swaps: " + swapCount);
         }
